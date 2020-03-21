@@ -1,0 +1,6 @@
+---
+- name: Playbook description
+  hosts: 
+  become: yes
+  tasks:
+    - name: Task description

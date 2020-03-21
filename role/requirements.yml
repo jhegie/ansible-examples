@@ -1,0 +1,4 @@
+---
+- name: httpd
+  scm: hg
+  src: file:///home/hegiej/repos/Ansible/httpd

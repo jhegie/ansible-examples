@@ -1,0 +1,17 @@
+---
+- name: More complex example
+  hosts: localhost
+  gather_facts: no
+  become: no
+  vars:
+    complex:
+      - name: Person A
+        email: persona@place.tld
+      - name: Person B
+        email: personb@place.tld
+  tasks:
+    - name: Iterate over a more complex structure
+      debug:
+        msg: "{{ item.name }}: {{ item.email }}"
+      loop: "{{ complex }}"
+

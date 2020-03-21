@@ -1,0 +1,20 @@
+---
+- name: Show variable use
+  hosts: localhost
+  become: no
+  gather_subset:
+    - min
+  vars:
+    message: "{{ ansible_hostname }}: Test message"
+  tasks:
+    - name: Print a system variable
+      debug:
+        var: ansible_hostname
+
+    - name: Print a user defined variable
+      debug:
+        var: message
+
+    - name: Print a user defined variable (text field)
+      debug:
+        msg: "{{ message }}"

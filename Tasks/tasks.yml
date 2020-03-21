@@ -1,0 +1,13 @@
+- name: Print a message
+  debug:
+    message: "This is a text output"
+
+- name: Install httpd
+  yum:
+    name: httpd
+    state: present
+
+- name: Touch a file
+  file:
+    path: /tmp/foo.{{ ansible_user_id }}
+    state: touch

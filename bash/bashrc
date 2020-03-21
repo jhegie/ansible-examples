@@ -1,0 +1,2 @@
+alias ansible-syn="ansible-playbook --syntax-check"
+alias ansible-check="ansible-playbook -C"

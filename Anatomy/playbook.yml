@@ -1,0 +1,20 @@
+---
+- name: This is a play
+  hosts: localhost
+  gather_subset:
+    - min
+  become: no
+  tasks:
+    - name: Task 1 of play 1
+      debug:
+        msg: "{{ ansible_hostname }}: play 1"
+
+- name: This is also a play
+  hosts: localhost
+  gather_subset:
+    - min
+  become: no
+  tasks:
+    - name: Task 1 of play 2
+      debug:
+        msg: "{{ ansible_hostname }}: play 2"

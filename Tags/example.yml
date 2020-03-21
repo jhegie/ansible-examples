@@ -1,0 +1,19 @@
+---
+- name: Demonstrate Tags
+  hosts: localhost
+  become: no
+  gather_subset:
+    - min
+  tasks:
+    - name: Print a message
+      debug:
+        msg: This is an example
+      tags:
+        - debug
+
+    - name: Test for a file
+      file:
+        path: /tmp/foo.{{ ansible_user_id }}.{{ 1500 | random }}
+        state: absent
+      tags:
+        - file

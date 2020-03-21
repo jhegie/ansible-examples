@@ -1,0 +1,21 @@
+---
+- name: Handler Examples
+  hosts: localhost
+  gather_subset:
+    - min
+  become: no
+  tasks:
+    - name: Touch a file
+      file:
+        path: /tmp/foo.{{ ansible_user_id }}
+        state: "{{ item }}"
+      loop:
+        - touch
+        - absent
+      notify: file handler
+
+  handlers:
+    - name: file handler
+      debug:
+        msg: "Notified of a change"
+

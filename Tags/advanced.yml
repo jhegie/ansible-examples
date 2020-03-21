@@ -1,0 +1,19 @@
+---
+- name: Advanced tag usage
+  hosts: localhost
+  become: no
+  gather_facts: no
+  tasks:
+    - name: Task always runs
+      debug:
+        msg: This task always runs
+      tags:
+        - always
+
+    - name: This task has to specifically be called out
+      debug:
+        msg: This tags requires the "debug" tag
+      tags:
+        - never
+        - debug
+

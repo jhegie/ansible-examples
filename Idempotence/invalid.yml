@@ -1,0 +1,3 @@
+- name: Install httpd package
+  shell: yum install -y httpd
+

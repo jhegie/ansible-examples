@@ -1,0 +1,4 @@
+---
+- name: role2
+  src: https://ess-satellite-01d/ansible_examples/role2.tar.gz
+

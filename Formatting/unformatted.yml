@@ -1,0 +1,12 @@
+---
+- name: Badly formatted tasks
+  hosts: localhost
+  become: no
+  gather_subset:
+    - min
+  tasks:
+    - name: Create a file in /tmp
+      file: path=/tmp/foo.{{ ansible_user_id }} mode=0644 owner={{ ansible_user_id }} state=touch
+
+    - name: Remove a file in /tmp
+      file: path=/tmp/foo.{{ ansible_user_id }} state=absent

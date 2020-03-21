@@ -1,0 +1,12 @@
+---
+- name: Import a vault and reference a variable
+  hosts: localhost
+  become: no
+  gather_facts: no
+  vars_files:
+    - encrypted.yml
+  tasks:
+    - name: Print the vault data
+      debug:
+        msg: 'This variable was encrypted: {{ vault_var }}'
+

@@ -1,0 +1,17 @@
+Example
+Example/defaults
+Example/defaults/main.yml
+Example/files
+Example/handlers
+Example/handlers/main.yml
+Example/meta
+Example/meta/main.yml
+Example/README.md
+Example/tasks
+Example/tasks/main.yml
+Example/templates
+Example/tests
+Example/tests/inventory
+Example/tests/test.yml
+Example/vars
+Example/vars/main.yml

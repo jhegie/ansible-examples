@@ -1,0 +1,4 @@
+playbook: Tags/example.yml
+
+  play #1 (localhost): Demonstrate Tags	TAGS: []
+      TASK TAGS: [debug, file]

@@ -1,0 +1,18 @@
+---
+- name: Handler that never fires
+  hosts: localhost
+  gather_subset:
+    - min
+  become: no
+  tasks:
+    - name: Ensure a file doesn't exist
+      file:
+        path: /tmp/foo.{{ ansible_user_id }}.{{ 1500 | random }}
+        state: absent
+      notify: file handler
+
+  handlers:
+    - name: file handler
+      debug:
+        msg: "This will never fire"
+

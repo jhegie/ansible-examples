@@ -1,0 +1,25 @@
+---
+- name: Sample tasks with filters
+  hosts: localhost
+  become: no
+  gather_subset:
+    - min
+  vars:
+    list1:
+      - /tmp/foo.{{ ansible_user_id }}
+      - /tmp/bar.{{ ansible_user_id }}
+    list2:
+      - /tmp/{{ ansible_user_id }}.foo
+      - /tmp/{{ ansible_user_id }}.bar
+  tasks:
+    - name: Create files
+      file:
+        path: "{{ item }}"
+        state: touch
+      loop: "{{ list1 | union(list2) }}"
+
+    - name: Clean up files
+      file:
+        path: "{{ item }}"
+        state: absent
+      loop: "{{ list1 | union(list2) }}"

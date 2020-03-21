@@ -1,0 +1,16 @@
+301 Commands should not change things if nothing needs doing
+src/Lint/bad.yml:9
+Task/Handler: shell /bin/ls /tmp
+
+305 Use shell only when shell functionality is required
+src/Lint/bad.yml:9
+Task/Handler: shell /bin/ls /tmp
+
+502 All tasks should be named
+src/Lint/bad.yml:9
+Task/Handler: shell /bin/ls /tmp
+
+206 Variables should have spaces before and after: {{ var_name }}
+src/Lint/bad.yml:13
+        msg: "{{demovar}}"
+

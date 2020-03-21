@@ -1,0 +1,44 @@
+---
+- name: Example with all sections
+  hosts: localhost
+  become: no
+  gather_facts: no
+  pre_tasks:
+    - name: Print order
+      debug:
+        msg: "I run first"
+      notify: pre handler
+      changed_when: true
+
+  tasks:
+    - name: Print order
+      debug:
+        msg: "I run fourth"
+      notify: std handler
+      changed_when: true
+
+  roles:
+    - example
+
+  post_tasks:
+    - name: Print order
+      debug:
+        msg: "I run seventh"
+      notify: post handler
+      changed_when: true
+
+  handlers:
+    - name: pre handler
+      debug:
+        msg: "I run second"
+
+    - name: std handler
+      debug:
+        msg: "I run sixth"
+
+    - name: post handler
+      debug:
+        msg: "I run last"
+
+
+

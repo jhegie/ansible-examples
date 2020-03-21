@@ -1,0 +1,14 @@
+---
+- name: Play desription
+  hosts: localhost
+  gather_facts: no
+  become: no
+  tasks:
+    - name: Task description
+      debug:
+        msg: "Did a thing"
+
+    - name: Another task description
+      debug:
+        msg: "Did another thing"
+

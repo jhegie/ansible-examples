@@ -1,0 +1,42 @@
+---
+# tasks file for Example
+- name: Deploy a template
+  template:
+    src: src.j2
+    dest: /tmp/template.{{ ansible_user_id }}
+  notify: template deploy
+  tags:
+    - deploy
+    - template
+
+- name: Deploy a static file
+  copy:
+    src: static
+    dest: /tmp/static.{{ ansible_user_id }}
+  notify: static deploy
+  tags:
+    - deploy
+    - static
+
+- name: Print a variable
+  debug:
+    msg: "rolevar: {{ rolevar }}"
+  tags:
+    - debug
+
+- name: Print another variable
+  debug:
+    msg: "roledefault: {{ roledefault }}"
+  tags:
+    - debug
+
+- name: Clean up files
+  file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+    - /tmp/template.{{ ansible_user_id }}
+    - /tmp/static.{{ ansible_user_id }}
+  tags:
+    - cleanup
+    - never

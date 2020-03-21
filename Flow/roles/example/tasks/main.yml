@@ -1,0 +1,7 @@
+---
+# tasks file for example
+- name: print order
+  debug:
+    msg: "I run third"
+  notify: role handler
+  changed_when: true

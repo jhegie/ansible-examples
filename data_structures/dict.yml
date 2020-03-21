@@ -1,0 +1,7 @@
+dictionary:
+  first:
+    name: Person A
+    email: persona@place.tld
+  second:
+    name: Person B
+    email: personb@place.tld

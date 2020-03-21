@@ -1,0 +1,13 @@
+---
+- name: Bad Playbook
+  hosts: localhost
+  gather_facts: no
+  become: no
+  vars:
+    demovar: This is a variable
+  tasks:
+    - shell: /bin/ls /tmp
+
+    - name: Print a variable
+      debug:
+        msg: "{{demovar}}"

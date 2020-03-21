@@ -1,0 +1,31 @@
+---
+- name: Demonstrate Block/Rescue
+  hosts: localhost
+  become: no
+  gather_facts: no
+  vars:
+    blockvar: true
+  tasks:
+    - name: Block of tasks
+      block:
+        - name: Fail on value of blockvar
+          debug:
+            msg: "This always fails if blockvar is true"
+          failed_when: blockvar
+
+        - name: Print a message
+          debug:
+            msg: This always succeeds
+
+      rescue:
+        - name: Clear failure and continue
+          debug:
+            msg: "This only runs if a task in the block fails"
+          failed_when: rescuevar is defined
+
+      always:
+        - name: Always runs
+          debug:
+            msg: "This task always runs"
+
+

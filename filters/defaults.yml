@@ -1,0 +1,26 @@
+---
+- name: Tasks that use defaults
+  hosts: localhost
+  become: no
+  gather_subset:
+    - min
+  vars:
+    files:
+      - path: /tmp/foo.{{ ansible_user_id }}
+      - path: /tmp/bar.{{ ansible_user_id }}
+        perms: "0644"
+      - path: /tmp/absent
+        state: directory
+  tasks:
+    - name: Set state on files
+      file:
+        path: "{{ item.path }}"
+        mode: "{{ item.perms|default(omit) }}"
+        state: "{{ item.state|default('absent') }}"
+      loop: "{{ files }}"
+
+    - name: Clean up
+      file:
+        path: "{{ item.path }}"
+        state: absent
+      loop: "{{ files }}"

@@ -1,0 +1,7 @@
+---
+- name: Demonstrate role2
+  hosts: localhost
+  become: no
+  gather_facts: no
+  roles:
+    - role2

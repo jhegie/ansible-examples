@@ -1,0 +1,15 @@
+---
+- name: Example With a Loop
+  hosts: localhost
+  become: no
+  gather_facts: no
+  vars:
+    list:
+      - Thing one
+      - Thing two
+  tasks:
+    - name: Loop over the list
+      debug:
+        var: item
+      loop: "{{ list }}"
+

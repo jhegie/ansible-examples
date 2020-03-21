@@ -1,0 +1,4 @@
+---
+- name: Example
+  src: https://ess-satellite-01d/ansible_examples/example.tar.gz
+

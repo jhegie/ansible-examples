@@ -1,0 +1,8 @@
+---
+- name: Test the Example role
+  hosts: localhost
+  become: no
+  gather_subset:
+    - min
+  roles:
+    - Example

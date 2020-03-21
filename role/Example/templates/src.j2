@@ -1,0 +1,6 @@
+This file is deployed on {{ ansible_hostname }}
+
+The following is looped:
+{% for count in range(1,5) %}
+{{ count }}
+{% endfor %}

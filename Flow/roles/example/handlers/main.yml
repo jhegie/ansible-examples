@@ -1,0 +1,5 @@
+---
+# handlers file for example
+- name: role handler
+  debug:
+    msg: "I run fifth"

@@ -1,0 +1,9 @@
+---
+# handlers file for Example
+- name: static deploy
+  debug:
+    msg: "Static file was deployed"
+
+- name: template deploy
+  debug:
+    msg: "Template was deployed"
