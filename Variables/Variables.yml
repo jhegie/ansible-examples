@@ -1,6 +1,6 @@
 ---
 - name: Show variable use
-  hosts: localhost
+  hosts: all
   become: no
   gather_subset:
     - min
