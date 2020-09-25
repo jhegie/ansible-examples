@@ -1,4 +1,4 @@
-autocmd FileType yaml setlocal ai si ts=2 sw=2 et
+autocmd FileType yaml setlocal ai si ts=2 sw=2 sts=-1 et
 augroup yaml
 	autocmd BufNewFile *.yml 0r ~/.vim/templates/skel.yml
 augroup end
